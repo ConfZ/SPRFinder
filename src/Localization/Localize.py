@@ -9,6 +9,7 @@ from settings import flag
 import pandas as pd
 from init_run import init_run
 from parser import args
+def init_settings(para):
 
 def main():
     # parse_csv(settings.csv_path)
@@ -119,45 +120,45 @@ def main():
 
 
 
-if __name__ == '__main__':
-    df = pd.DataFrame(columns=['case', 'commit', 'build_error', 'find_error', 'unique_cmt'])
-    df.to_csv('./Location.csv')
-    settings.solver = args.solver[0]
-    if settings.solver == 'z3seq':
-        settings.solver = 'seq'
-
-    father_path = os.path.dirname(os.getcwd())
-    settings.father_path = father_path
-    if settings.solver == 'seq' or settings.solver == 'z3str3':
-        settings.solvers = ['/home/marui18b/zy/z3_version/z3-4.8.9/build/z3',
-                   '/home/marui18b/zy/z3_version/z3-4.8.8/build/z3',
-                   '/home/marui18b/zy/z3_version/z3-4.8.7/build/z3']
-    elif settings.solver == 'cvc4':
-        settings.solvers = ['/home/marui18b/zy/cvc4_version/CVC4-1.9/build/bin/cvc4',
-                   '/home/marui18b/zy/cvc4_version/CVC4-1.8/build/bin/cvc4',
-                   '/home/marui18b/zy/cvc4_version/CVC4-1.7/build/bin/cvc4']
-    # settings.solvers = ['/home/zy/Documents/smt_editions/z3_editions/z3-4.8.9',
-    #                     '/home/zy/Documents/smt_editions/z3_editions/z3-4.8.8',
-    #                     '/home/zy/Documents/smt_editions/z3_editions/z3-4.8.7']
-    # print('solver is', settings.solver)
-    if any([settings.solver == 'seq', settings.solver == 'z3str3']):
-        tool_file = 'z3'
-    elif settings.solver == 'cvc4':
-        tool_file = 'CVC4'
-    else:
-        raise ValueError('solver should be cvc4, seq, or z3str3')
-    # print(os.getcwd())
-    settings.root_path = os.getcwd()
-    # father_path = os.path.dirname(os.getcwd())
-    # settings.case_path = os.path.join(father_path, 'BanditFuzz_beta', 'cases')
-    # settings.init_path = os.path.join(father_path, 'auto_cmt', tool_file)
-    # settings.csv_path = os.path.join(father_path, 'BanditFuzz_beta', 'Results.csv')
-    if len(args.cases[0]) == 0:
-        settings.case_path = os.path.join(os.getcwd(), 'cases')
-    else:
-        settings.case_path = args.cases[0]
-    settings.init_path = os.path.join(os.getcwd(), tool_file)
-    settings.csv_path = os.path.join(os.getcwd(), 'Results.csv')
-
-    main()
-    print('have finished!')
+# if __name__ == '__main__':
+#     df = pd.DataFrame(columns=['case', 'commit', 'build_error', 'find_error', 'unique_cmt'])
+#     df.to_csv('./Location.csv')
+#     settings.solver = args.solver[0]
+#     if settings.solver == 'z3seq':
+#         settings.solver = 'seq'
+#
+#     father_path = os.path.dirname(os.getcwd())
+#     settings.father_path = father_path
+#     if settings.solver == 'seq' or settings.solver == 'z3str3':
+#         settings.solvers = ['/home/marui18b/zy/z3_version/z3-4.8.9/build/z3',
+#                    '/home/marui18b/zy/z3_version/z3-4.8.8/build/z3',
+#                    '/home/marui18b/zy/z3_version/z3-4.8.7/build/z3']
+#     elif settings.solver == 'cvc4':
+#         settings.solvers = ['/home/marui18b/zy/cvc4_version/CVC4-1.9/build/bin/cvc4',
+#                    '/home/marui18b/zy/cvc4_version/CVC4-1.8/build/bin/cvc4',
+#                    '/home/marui18b/zy/cvc4_version/CVC4-1.7/build/bin/cvc4']
+#     # settings.solvers = ['/home/zy/Documents/smt_editions/z3_editions/z3-4.8.9',
+#     #                     '/home/zy/Documents/smt_editions/z3_editions/z3-4.8.8',
+#     #                     '/home/zy/Documents/smt_editions/z3_editions/z3-4.8.7']
+#     # print('solver is', settings.solver)
+#     if any([settings.solver == 'seq', settings.solver == 'z3str3']):
+#         tool_file = 'z3'
+#     elif settings.solver == 'cvc4':
+#         tool_file = 'CVC4'
+#     else:
+#         raise ValueError('solver should be cvc4, seq, or z3str3')
+#     # print(os.getcwd())
+#     settings.root_path = os.getcwd()
+#     # father_path = os.path.dirname(os.getcwd())
+#     # settings.case_path = os.path.join(father_path, 'BanditFuzz_beta', 'cases')
+#     # settings.init_path = os.path.join(father_path, 'Localize', tool_file)
+#     # settings.csv_path = os.path.join(father_path, 'BanditFuzz_beta', 'Results.csv')
+#     if len(args.cases[0]) == 0:
+#         settings.case_path = os.path.join(os.getcwd(), 'cases')
+#     else:
+#         settings.case_path = args.cases[0]
+#     settings.init_path = os.path.join(os.getcwd(), tool_file)
+#     settings.csv_path = os.path.join(os.getcwd(), 'Results.csv')
+#
+#     main()
+#     print('have finished!')

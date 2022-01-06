@@ -40,3 +40,13 @@ have_found_dict = {}
 unique_cmt = 0
 father_path = ''
 solvers = []
+
+class parameters:
+    def __init__(self):
+        self.target_solver = ''
+        self.root_path = ''
+        self.case_path = ''
+        self.father_path = ''
+        self.solvers = []
+        self.csv_path = ''
+        self.init_path = ''
