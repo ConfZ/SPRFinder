@@ -39,7 +39,7 @@ $pip3 install dtw-python
 
 ```
 $cd path of SPRFinder
-$python3 bin/SPRFinder.py -t z3seq -s z3-4.8.9 z3-4.8.8 z3-4.8.7
+$python3 bin/SPRFinder_Detect.py -t z3seq -s z3-4.8.9 z3-4.8.8 z3-4.8.7
 ```
 
 The regression cases can be found at ./results/Regression_cases
@@ -69,7 +69,7 @@ $git clone https://github.com/Z3Prover/z3.git
 For example, conduct the localization on z3seq.
 ```
 $cd Path_of_SPRFinder
-$python3 bin/Localization.py -t z3seq -s z3-4.8.9 z3-4.8.8 z3-4.8.7
+$python3 bin/SPRFinder_Localize.py -t z3seq -s z3-4.8.9 z3-4.8.8 z3-4.8.7
 ```
 
 The results can be find at ./results/Localized
