@@ -66,7 +66,7 @@ $git clone https://github.com/Z3Prover/z3.git
 + Please keep your network online.
 + Run:
 
-For example, conduct the localization on z3seq.
+For example, conduct the localization on z3-seq.
 ```
 $cd Path_of_SPRFinder
 $python3 bin/SPRFinder_Localize.py -t z3seq -s z3-4.8.9 z3-4.8.8 z3-4.8.7
